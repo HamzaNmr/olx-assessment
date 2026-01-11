@@ -1,15 +1,27 @@
-import { Fragment } from 'react';
-import type { AppProps } from "next/app";
+import { NextIntlClientProvider } from "next-intl";
+import { AppInitialProps } from "next/app";
+import { useRouter } from "next/router";
 
-interface ProvidersProps extends AppProps {
+interface ProvidersProps extends AppInitialProps {
     children: React.ReactNode;
 }
 
-function Providers({ children }: ProvidersProps) {
+function Providers({ 
+  children,
+  pageProps,
+}: ProvidersProps) {
+  const { locale } = useRouter();
+  const { messages } = pageProps;
+
   return (
-    <Fragment>
-      {children}
-    </Fragment>
+    <>
+      <NextIntlClientProvider
+          locale={locale}
+          messages={messages}
+      >
+        {children}
+      </NextIntlClientProvider>
+    </>
   )
 }
 
