@@ -11,11 +11,12 @@ import {
     Truck, 
     Wallet
 } from "@/resources/icons";
-import { Bell, MessageCircle, Plus } from "lucide-react";
+import { Bell, ChevronRight, LocateFixed, MessageCircle, Plus, Search } from "lucide-react";
 
 export const Icons = {
     logo: (props: IconProps) => ( <Logo {...props} /> ),
     arrowDown: (props: IconProps) => <ChevronDown {...props} />,
+    arrowRight: (props: IconProps) => <ChevronRight {...props} />,
     mapPin: (props: IconProps) => <MapPin {...props} />,
     wallet: (props: IconProps) => <Wallet {...props} />,
     fileSpreadsheet: (props: IconProps) => <FileSpreadsheet {...props} />,
@@ -27,5 +28,7 @@ export const Icons = {
     plus: (props: IconProps) => <Plus {...props} />,
     message: (props: IconProps) => <MessageCircle {...props} />,
     notification: (props: IconProps) => <Bell {...props} />,
+    locationFixed: (props: IconProps) => <LocateFixed {...props} />,
+    search: (props: IconProps) => <Search {...props} />,
 };
 

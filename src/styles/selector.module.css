@@ -1,9 +1,27 @@
 .selectorContainer {
   position: relative;
-  width: 100%;
   width: 300px;
   font-family: Arial, sans-serif;
   border-radius: 4px;
+  --border: 1px solid #e0e0e0;
+}
+
+/* Trigger button */
+.selectorButton {
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+  transition: border-color 120ms ease;
+}
+
+.selectorButton:hover {
+  border-color: #888;
 }
 
 .selectedValue {
@@ -12,22 +30,160 @@
   gap: 8px;
 }
 
-.selectorButton {
-  width: 100%;
-  padding: 10px;
-  background: white;
-  border: 1px solid #ccc;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 4px;
+.selectedLabel {
+  color: #111;
 }
 
-.selectorButton:hover {
-  border-color: #888;
+.placeholder {
+  color: #888;
 }
 
+/* Dropdown content wrapper */
 .optionsList {
+  width: 320px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(17, 17, 17, 0.08);
+  border: 1px solid rgba(0,0,0,0.04);
+  overflow: hidden;
+}
+
+/* Search box at top */
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  border: 1px solid #eee;
+  margin: 1rem;
+}
+
+.searchIcon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.7;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+}
+
+.clearBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.7;
+  padding: 2px 6px;
+}
+
+/* Use current location button */
+.useLocation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin-bottom: 8px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.useLocation:hover {
+  background: rgba(var(--blue-rgb), 0.1);
+}
+
+.useLocationLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.targetIcon {
+  width: 24px;
+  height: 24px;
+  color: #e03b3b;
+}
+
+.useLocationTitle {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Header row: title + all-link */
+.headerRow {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  color: #666;
+}
+
+.heading {
+  font-size: 13px;
+  color: #777;
+  font-weight: 600;
+}
+
+/* red "See ads in all Lebanon" link */
+.allLink {
+  background: transparent;
+  border: none;
+  color: #e03b3b;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Options scroll area */
+.scrollArea {
   max-height: 200px;
+  overflow-y: auto;
+  border-top: 1px solid #fafafa;
+  margin-top: 6px;
+  padding-top: 6px;
+}
+
+/* Option items */
+.optionItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  transition: background 120ms ease;
+  padding: 0.5rem 1rem;
+}
+
+.optionItem:last-child {
+  padding-bottom: 1rem;
+}
+
+.optionItem:hover {
+  background: rgba(var(--blue-rgb), 0.1);
+}
+
+.optionLabel {
+  font-size: 14px;
+  color: #111;
+}
+
+.chev, .chevSmall {
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+}
+
+.noResults {
+  padding: 16px 8px;
+  color: #999;
+  text-align: center;
+  font-size: 13px;
 }

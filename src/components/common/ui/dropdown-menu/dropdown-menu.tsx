@@ -15,17 +15,17 @@ export const DropdownMenuTrigger: React.FC<{
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLDivElement>(null);
 
-  // Close when clicked outside
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (triggerRef.current && !triggerRef.current.contains(e.target as Node)) {
-        setOpen(false);
-        onToggle?.(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [onToggle]);
+  // // Close when clicked outside
+  // useEffect(() => {
+  //   const handleClickOutside = (e: MouseEvent) => {
+  //     if (triggerRef.current && !triggerRef.current.contains(e.target as Node)) {
+  //       setOpen(false);
+  //       onToggle?.(false);
+  //     }
+  //   };
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => document.removeEventListener("mousedown", handleClickOutside);
+  // }, [onToggle]);
 
   const toggleMenu = () => {
     setOpen(prev => {
