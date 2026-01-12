@@ -11,7 +11,7 @@ import {
     Truck, 
     Wallet
 } from "@/resources/icons";
-import { Bell, ChevronRight, LocateFixed, MessageCircle, Plus, Search } from "lucide-react";
+import { Bell, ChevronRight, LocateFixed, LogOut, MessageCircle, Plus, Search } from "lucide-react";
 
 export const Icons = {
     logo: (props: IconProps) => ( <Logo {...props} /> ),
@@ -30,5 +30,6 @@ export const Icons = {
     notification: (props: IconProps) => <Bell {...props} />,
     locationFixed: (props: IconProps) => <LocateFixed {...props} />,
     search: (props: IconProps) => <Search {...props} />,
+    logout: (props: IconProps) => <LogOut {...props} />,
 };
 

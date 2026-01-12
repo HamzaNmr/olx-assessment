@@ -1,5 +1,5 @@
-import { Icons } from '../../svg/icons'
-import { Button } from './button'
+import { Icons } from '@/components/common/svg/icons'
+import { Button } from '@/components/common/ui/button';
 
 function MessageButton() {
   return (

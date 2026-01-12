@@ -1,26 +1,26 @@
+import styles from "@/styles/location-selector.module.css";
 import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-} from "@/components/common/ui/dropdown-menu/dropdown-menu";
-import styles from "@/styles/selector.module.css";
-import { SelectorProps } from "@/interfaces";
+} from "@/components/common/ui/dropdown-menu";
+import { LocationSelectorOption, LocationSelectorProps } from "@/interfaces";
 import { Icons } from "@/components/common/svg/icons";
 
-export default function Selector({
+export default function LocationSelector({
   options,
   value,
   onChange,
-  placeholder = "Select...",
+  placeholder = "Select location...",
   icon,
-}: SelectorProps) {
+}: LocationSelectorProps) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
 
-  const filteredOptions = options.filter((opt) =>
-    opt.label.toLowerCase().includes(query.trim().toLowerCase())
+  const filteredOptions = options.filter((option) =>
+    option.label.toLowerCase().includes(query.trim().toLowerCase())
   );
 
   const handleUseCurrentLocation = async () => {
@@ -31,8 +31,8 @@ export default function Selector({
     }
 
     navigator.geolocation.getCurrentPosition(
-      (pos) => {
-        const label = `${pos.coords.latitude.toFixed(3)}, ${pos.coords.longitude.toFixed(3)}`;
+      (position) => {
+        const label = `${position.coords.latitude.toFixed(3)}, ${position.coords.longitude.toFixed(3)}`;
         onChange({ value: "current_location", label } as any);
         setOpen(false);
       },
@@ -44,8 +44,8 @@ export default function Selector({
     );
   };
 
-  const handleSelect = (opt: any) => {
-    onChange(opt);
+  const handleSelect = (option: LocationSelectorOption) => {
+    onChange(option);
     setOpen(false);
     setQuery("");
   };

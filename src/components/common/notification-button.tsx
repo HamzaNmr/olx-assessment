@@ -1,6 +1,5 @@
-import { Icons } from '../../svg/icons'
-import { Button } from './button'
-import { Bell } from 'lucide-react'
+import { Icons } from '@/components/common/svg/icons'
+import { Button } from '@/components/common/ui/button'
 
 function NotificationButton() {
   return (

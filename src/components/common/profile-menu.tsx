@@ -1,18 +1,18 @@
+import styles from "@/styles/profile-menu.module.css";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
-} from "@/components/common/ui/dropdown-menu/dropdown-menu";
-import Image from "next/image";
-import styles from "@/styles/profile-menu.module.css";
-import { ChevronDown, LogOut } from "lucide-react";
-import { Button } from "@/components/common/ui/buttons/button";
+} from "@/components/common/ui/dropdown-menu";
+import { Button } from "@/components/common/ui/button";
 import { fetchProfileMenu } from "@/services/profile-menu.service";
 import { fetchUserInfo } from "@/services/user-info.service";
 import { MenuData, UserInfo } from "@/types";
+import { Icons } from "./svg/icons";
 
 export function ProfileMenu() {
   const [open, setOpen] = useState(false);
@@ -54,7 +54,7 @@ export function ProfileMenu() {
               />
             )}
           </div>
-          {open ? <ChevronDown style={{ transform: "rotate(180deg)" }} /> : <ChevronDown />}
+          {open ? <Icons.arrowDown style={{ transform: "rotate(180deg)" }} /> : <Icons.arrowDown />}
         </div>
       </DropdownMenuTrigger>
 
@@ -134,7 +134,7 @@ export function ProfileMenu() {
             setOpen(false);
           }}
         >
-          <LogOut />
+          <Icons.logout />
           Log Out
         </DropdownMenuItem>
       </DropdownMenuContent>

@@ -14,7 +14,15 @@ export interface ButtonProps
 export const Button = React.forwardRef<
   HTMLButtonElement,
   ButtonProps
->(({ label, icon, variant = "default", className, disabled, ...rest }, ref) => {
+>(({ 
+    label, 
+    icon, 
+    variant = "default", 
+    className, 
+    disabled, 
+    ...props 
+  }, ref
+) => {
   return (
     <button
       ref={ref}
@@ -27,7 +35,7 @@ export const Button = React.forwardRef<
         className
       )}
       disabled={disabled}
-      {...rest}
+      {...props}
     >
       {icon && <span className={styles.icon}>{icon}</span>}
       {label}

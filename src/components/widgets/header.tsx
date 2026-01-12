@@ -1,6 +1,6 @@
 import styles from "@/styles/header.module.css";
 import Logo from '@/components/common/svg/logo';
-import SubHeader from "./sub-header";
+import SubHeader from "@/components/widgets/sub-header";
 
 function Header() {
   return (

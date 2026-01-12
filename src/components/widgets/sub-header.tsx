@@ -1,17 +1,17 @@
-import { useState } from 'react'
 import styles from "@/styles/header.module.css";
-import SearchInput from '../common/ui/inputs/search-input/search-input';
-import SellButton from '../common/ui/buttons/sell-button';
-import MessageButton from '../common/ui/buttons/message-button';
-import NotificationButton from '../common/ui/buttons/notification-button';
-import { SelectorOption } from '@/interfaces';
-import { ProfileMenu } from '../common/ui/dropdown-menu/profile-menu';
-import LanguageToggle from '../common/ui/buttons/language-toggle';
-import Selector from '../common/ui/inputs/selector/selector';
+import { useState } from 'react'
+import { LocationSelectorOption } from '@/interfaces';
+import SearchInput from '@/components/common/ui/inputs/search-input';
+import SellButton from '@/components/common/sell-button';
+import MessageButton from '@/components/common/message-button';
+import NotificationButton from '@/components/common/notification-button';
+import { ProfileMenu } from '@/components/common/profile-menu';
+import LanguageToggle from '@/components/common/language-toggle';
+import LocationSelector from '@/components/common/location-selector';
 import { Icons } from '../common/svg/icons';
 
 function SubHeader() {
-  const options: SelectorOption[] = [
+  const options: LocationSelectorOption[] = [
     { value: "beirut", label: "Beirut" },
     { value: "mount_lebanon", label: "Mount Lebanon" },
     { value: "north_lebanon", label: "North Lebanon" },
@@ -23,7 +23,7 @@ function SubHeader() {
     { value: "keserwan_jbeil", label: "Keserwan‑Jbeil" },
   ];
 
-  const [selected, setSelected] = useState<SelectorOption | null>(null);
+  const [selected, setSelected] = useState<LocationSelectorOption | null>(null);
   const [search, setSearch] = useState("");
 
   const handleSearch = (query: string) => {
@@ -32,7 +32,7 @@ function SubHeader() {
 
   return (
     <div className={styles.subHeader}>
-        <Selector
+        <LocationSelector
           options={options}
           value={selected}
           onChange={setSelected}

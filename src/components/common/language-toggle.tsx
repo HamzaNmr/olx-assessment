@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router';
 import styles from '@/styles/language-toggler.module.css';
-import { Button } from './button';
+import { useRouter } from 'next/router';
+import { Button } from '@/components/common/ui/button';
 
 function LanguageToggle() {
   const router = useRouter();
