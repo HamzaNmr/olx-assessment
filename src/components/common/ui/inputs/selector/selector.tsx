@@ -1,67 +1,51 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/common/ui/dropdown-menu/dropdown-menu";
 import styles from "@/styles/selector.module.css";
-import { ChevronDown, MapPin } from "lucide-react";
-import { SelectorProps, SelectorOption } from "@/interfaces";
+import { SelectorProps } from "@/interfaces";
+import { Icons } from "@/components/common/svg/icons";
 
 
-
-function Selector ({
+export default function Selector({
   options,
   value,
   onChange,
-  placeholder = "Select…",
+  placeholder = "Select...",
+  icon
 }: SelectorProps) {
   const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside: (event: MouseEvent) => void = (event: MouseEvent) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
-        setOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  const handleSelect = (option: SelectorOption) => {
-    onChange(option);
-    setOpen(false);
-  };
 
   return (
-    <div className={styles.selectorContainer} ref={containerRef}>
-      <div
-        className={styles.selectorButton}
-        onClick={() => setOpen((prev) => !prev)}
-      >
-        <div className={styles.selectedValue}>  
-          <MapPin style={{color: "var(--yellow)"}} />
-          <span>{value ? value.label : placeholder}</span>
+    <DropdownMenu>
+      <DropdownMenuTrigger onToggle={setOpen} className={styles.selectorContainer}>
+        <div className={styles.selectorButton}>
+          <div className={styles.selectedValue}>
+            {icon}
+            <span>{value ? value.label : placeholder}</span>
+          </div>
+          <Icons.arrowDown
+            style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+          />
         </div>
-        { open ? <ChevronDown style={{ transform: "rotate(180deg)" }} /> : <ChevronDown /> }
-      </div>
+      </DropdownMenuTrigger>
 
-      {open && (
-        <div className={styles.optionsList}>
-          {options.map((opt) => (
-            <div
-              key={opt.value}
-              className={styles.optionItem}
-              onClick={() => handleSelect(opt)}
-            >
-              {opt.label}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
+      <DropdownMenuContent className={styles.optionsList} open={open}>
+        {options.map((opt) => (
+          <DropdownMenuItem
+            key={opt.value}
+            onSelect={() => {
+              onChange(opt);
+              setOpen(false);
+            }}
+          >
+            {opt.label}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 };
-
-export default Selector;

@@ -6,9 +6,11 @@ import {
   Truck,
   MessageCircleQuestionMark,
   Settings,
+  ChevronDown,
+  MapPin,
 } from "lucide-react";
 
-export const ICONS = {
+export {
   Wallet,
   FileSpreadsheet,
   Heart,
@@ -16,4 +18,6 @@ export const ICONS = {
   Truck,
   MessageCircleQuestionMark,
   Settings,
+  ChevronDown,
+  MapPin,
 };

@@ -1,10 +1,11 @@
+import { Icons } from '../../svg/icons'
 import { Button } from './button'
 import { Bell } from 'lucide-react'
 
 function NotificationButton() {
   return (
     <Button
-        icon={<Bell />}
+        icon={<Icons.notification />}
         variant="ghost"
     />
   )

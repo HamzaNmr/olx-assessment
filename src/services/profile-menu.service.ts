@@ -1,3 +1,4 @@
+import { FileSpreadsheet, Heart, MessageCircleQuestionMark, Settings, Truck, Wallet } from "@/resources/icons";
 import { MenuData } from "@/types";
 
 const MOCK_MENU: MenuData = {
@@ -6,34 +7,34 @@ const MOCK_MENU: MenuData = {
       id: "1",
       label: "Wallet",
       subText: "Balance: $1,250.00",
-      icon: "Wallet",
+      icon: Wallet,
     },
     {
       id: "2",
       label: "Favourites & Saved searches",
-      icon: "Heart",
+      icon: Heart,
     },
     {
       id: "4",
       label: "Orders & Delivery",
-      icon: "Truck",
+      icon: Truck,
     },
   ],
   bottom: [
     {
       id: "5",
       label: "Settings",
-      icon: "Settings",
+      icon: Settings,
     },
     {
       id: "6",
       label: "Help & Support",
-      icon: "MessageCircleQuestionMark",
+      icon: MessageCircleQuestionMark,
     },
     {
       id: "7",
       label: "Download Data",
-      icon: "FileSpreadsheet",
+      icon: FileSpreadsheet,
     },
   ],
 };

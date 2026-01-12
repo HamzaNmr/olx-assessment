@@ -1,10 +1,10 @@
+import { Icons } from '../../svg/icons'
 import { Button } from './button'
-import { Bell, MessageCircle } from 'lucide-react'
 
 function MessageButton() {
   return (
     <Button
-        icon={<MessageCircle />}
+        icon={<Icons.message />}
         variant="ghost"
     />
   )

@@ -1,12 +1,11 @@
-import { ICONS } from "@/services/icon-map.service";
-
-type IconKeys = keyof typeof ICONS;
+import { IconNode } from "lucide-react";
+import React from "react";
 
 export type MenuItem = {
   id: string;
   label: string;
   subText?: string;
-  icon?: IconKeys;
+  icon?: React.ElementType;
 };
 
 export type MenuData = {

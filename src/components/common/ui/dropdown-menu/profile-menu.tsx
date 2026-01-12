@@ -12,8 +12,6 @@ import { ChevronDown, LogOut } from "lucide-react";
 import { Button } from "@/components/common/ui/buttons/button";
 import { fetchProfileMenu } from "@/services/profile-menu.service";
 import { fetchUserInfo } from "@/services/user-info.service";
-import React from "react";
-import { ICONS } from "@/services/icon-map.service";
 import { MenuData, UserInfo } from "@/types";
 
 export function ProfileMenu() {
@@ -93,26 +91,39 @@ export function ProfileMenu() {
 
         <DropdownMenuSeparator />
 
-        {menuItems.main.map((item) => (
-          <DropdownMenuItem key={item.id} className={styles.profileMenuItem}>
-            {item.icon && React.createElement(ICONS[item.icon])}
-            <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-              <span>{item.label}</span>
-              {item.subText && (
-                <span style={{ fontSize: "12px", color: "#777" }}>{item.subText}</span>
-              )}
-            </div>
-          </DropdownMenuItem>
-        ))}
+        {menuItems.main.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <DropdownMenuItem key={item.id} className={styles.profileMenuItem}>
+              {Icon && <Icon className={styles.menuIcon} />}
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                <span>{item.label}</span>
+                {item.subText && (
+                  <span style={{ fontSize: "12px", color: "#777" }}>{item.subText}</span>
+                )}
+              </div>
+            </DropdownMenuItem>
+          );
+        })}
 
         <DropdownMenuSeparator />
 
-        {menuItems.bottom.map((item) => (
-          <DropdownMenuItem key={item.id} className={styles.profileMenuItem}>
-            {item.icon && React.createElement(ICONS[item.icon])}
-            {item.label}
-          </DropdownMenuItem>
-        ))}
+        {menuItems.bottom.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <DropdownMenuItem key={item.id} className={styles.profileMenuItem}>
+              {Icon && <Icon className={styles.menuIcon} />}
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                <span>{item.label}</span>
+                {item.subText && (
+                  <span style={{ fontSize: "12px", color: "#777" }}>{item.subText}</span>
+                )}
+              </div>
+            </DropdownMenuItem>
+          );
+        })}
 
         <DropdownMenuSeparator />
 

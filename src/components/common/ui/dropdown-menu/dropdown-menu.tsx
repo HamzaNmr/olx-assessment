@@ -7,7 +7,11 @@ export const DropdownMenu: React.FC<{ children: React.ReactNode }> = ({ children
 };
 
 // Trigger button
-export const DropdownMenuTrigger: React.FC<{ children: React.ReactNode; onToggle?: (open: boolean) => void }> = ({ children, onToggle }) => {
+export const DropdownMenuTrigger: React.FC<{ 
+  children: React.ReactNode; 
+  onToggle?: (open: boolean) => void,
+  className?: string; 
+}> = ({ children, onToggle, className }) => {
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<HTMLDivElement>(null);
 
@@ -33,7 +37,7 @@ export const DropdownMenuTrigger: React.FC<{ children: React.ReactNode; onToggle
   return (
     <div
       ref={triggerRef}
-      className={styles.trigger}
+      className={`styles.trigger ${className ?? ""}`}
       tabIndex={0}
       onClick={toggleMenu}
       onKeyDown={(e) => e.key === "Enter" && toggleMenu()}

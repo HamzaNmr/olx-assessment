@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Selector from '../common/ui/inputs/selector/selector';
 import styles from "@/styles/header.module.css";
 import SearchInput from '../common/ui/inputs/search-input/search-input';
 import SellButton from '../common/ui/buttons/sell-button';
@@ -8,6 +7,8 @@ import NotificationButton from '../common/ui/buttons/notification-button';
 import { SelectorOption } from '@/interfaces';
 import { ProfileMenu } from '../common/ui/dropdown-menu/profile-menu';
 import LanguageToggle from '../common/ui/buttons/language-toggle';
+import Selector from '../common/ui/inputs/selector/selector';
+import { Icons } from '../common/svg/icons';
 
 function SubHeader() {
   const options: SelectorOption[] = [
@@ -32,9 +33,10 @@ function SubHeader() {
   return (
     <div className={styles.subHeader}>
         <Selector
-            options={options}
-            value={selected}
-            onChange={setSelected}
+          options={options}
+          value={selected}
+          onChange={setSelected}
+          icon={<Icons.mapPin style={{ color: "var(--yellow)" }} />}
         />
         <SearchInput
           value={search}
