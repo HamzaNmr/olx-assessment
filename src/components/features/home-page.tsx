@@ -1,4 +1,4 @@
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/home.module.css";
 import { useTranslations } from "next-intl";
 import MainLayout from "@/components/layouts/main-layout";
 import { metadata } from "@/resources/config";
@@ -14,7 +14,7 @@ function HomePage() {
         description: home.description 
       }}
     >
-      <main className={styles.main}>
+      <main className={styles.container}>
         <h1 className={styles.title}>
           {t('home_welcome')}
         </h1>

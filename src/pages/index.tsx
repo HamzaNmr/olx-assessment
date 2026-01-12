@@ -1,10 +1,12 @@
 import { GetServerSideProps } from 'next';
 import HomePage from '@/components/features/home-page';
 import { fonts } from '@/resources/config';
+import Header from '@/components/widgets/header';
 
 export default function Root() {
   return (
     <div className={`${fonts.primary} ${fonts.secondary}`}>
+      <Header />
       <HomePage />
     </div>
   );

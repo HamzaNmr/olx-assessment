@@ -1,6 +1,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --muted: #F1F1F2;
+  --muted-foreground: #e0e0e0;
+  --yellow: #FCDE68;
+  --blue: #5BCCF6;
+  --blue-rgb: 87, 185, 223;
 }
 
 html,

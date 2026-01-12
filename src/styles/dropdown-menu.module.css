@@ -1,0 +1,107 @@
+.dropdownRoot {
+  position: relative;
+  display: inline-block;
+  font-family: sans-serif;
+}
+
+.trigger {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.trigger:hover {
+  background-color: rgba(var(--blue-rgb), 0.1);
+}
+
+.menuContent {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 180px;
+  margin-top: 6px;
+  background-color: #fff;
+  color: #111;
+  border-radius: 8px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1), 0 6px 6px 0 rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: none;
+  flex-direction: column;
+  z-index: 100;
+  animation: fadeIn 0.15s ease-out forwards;
+}
+
+@media (max-width: 480px) {
+  .menuContent {
+    right: -50%;
+    min-width: 140px;
+  }
+}
+
+.menuContent.open {
+  display: flex;
+}
+
+.menuItem {
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s;
+}
+
+.menuItem:hover, .menuItem:focus {
+  background-color: rgba(var(--blue-rgb), 0.1);
+}
+
+.submenuTrigger {
+  justify-content: space-between;
+  position: relative;
+}
+
+.submenuContent {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 160px;
+  margin-left: 4px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+  display: none;
+  flex-direction: column;
+  padding: 4px 0;
+}
+
+.submenuContent.open {
+  display: flex;
+}
+
+.checkboxIndicator, .radioIndicator {
+  width: 16px;
+  text-align: center;
+}
+
+.separator {
+  background-color: #e5e7eb;
+  margin: 4px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.label {
+  font-weight: 600;
+  padding: 6px 16px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px);}
+  to { opacity: 1; transform: translateY(0);}
+}
